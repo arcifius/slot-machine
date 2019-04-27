@@ -1,0 +1,14 @@
+.Wheel {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+
+  img {
+    padding: 15px;
+    width: 50px;
+    pointer-events: none;
+    background-color: white;
+  }
+}

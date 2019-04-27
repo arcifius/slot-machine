@@ -1,0 +1,40 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+  header {
+    text-transform: uppercase;
+    cursor: default;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    color: #313131;
+    width: 100vw;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: calc(2px + 2vmin);
+    padding: 5px;
+
+    a {
+      color: #3f51b5;
+      margin: 0 8px 0 8px;
+    }
+  }
+}
