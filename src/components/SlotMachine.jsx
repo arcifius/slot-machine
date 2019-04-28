@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import Wheel from "components/Wheel";
 
 import "styles/components/SlotMachine.scss";
 
-function SlotMachine(props) {
+function SlotMachine() {
   const [wheels, setWheels] = useState([
     { key: 0, face: Math.floor(Math.random() * 4) },
     { key: 1, face: Math.floor(Math.random() * 4) },
@@ -13,7 +12,12 @@ function SlotMachine(props) {
   const [isSpinning, setSpinning] = useState(false);
 
   const delay = 50;
-  let machineInterval = useRef();
+  const autoStopIn = 2000;
+  const autoStartIn = 5000;
+
+  const machineInterval = useRef();
+  const startTimeout = useRef();
+  const stopTimeout = useRef();
 
   useEffect(() => {
     function onSpin() {
@@ -34,12 +38,27 @@ function SlotMachine(props) {
       machineInterval.current = setInterval(onSpin, delay);
     } else if (!isSpinning) {
       stopSpinning();
-    }
 
-    return () => {
-      stopSpinning();
-    };
+      console.log(`Stopped, check for prizes`);
+      // Two identical non-consecutive symbols, the prize is 10 dollars.
+      // Two consecutive symbols, then the prize is 20 dollars.
+      // The same symbol in all the wheels, the prize is 100 dollars.
+    }
   }, [isSpinning, wheels]);
+
+  useEffect(() => {
+    if (isSpinning) {
+      clearTimeout(stopTimeout.current);
+      stopTimeout.current = setTimeout(() => setSpinning(false), autoStopIn);
+    } else {
+      clearTimeout(startTimeout.current);
+      startTimeout.current = setTimeout(() => setSpinning(true), autoStartIn);
+    }
+  }, [isSpinning]);
+
+  function handleButtonPress() {
+    setSpinning(!isSpinning);
+  }
 
   function renderWheels() {
     return wheels.map(wheel => <Wheel key={wheel.key} current={wheel.face} />);
@@ -52,7 +71,7 @@ function SlotMachine(props) {
         {renderWheels()}
       </div>
       <div className="SlotMachine-lever">
-        <button onClick={() => setSpinning(!isSpinning)}>
+        <button onClick={handleButtonPress}>
           {isSpinning ? `STOP` : `START`}
         </button>
       </div>
@@ -60,13 +79,5 @@ function SlotMachine(props) {
     </div>
   );
 }
-
-SlotMachine.propTypes = {
-  wheels: PropTypes.number
-};
-
-SlotMachine.defaultProps = {
-  wheels: 3
-};
 
 export default SlotMachine;
