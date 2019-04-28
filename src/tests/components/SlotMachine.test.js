@@ -6,6 +6,7 @@ import {
   waitForElement,
   act
 } from "react-testing-library";
+import "jest-dom/extend-expect";
 import SlotMachine from "components/SlotMachine";
 
 describe("Slot machine", () => {
@@ -70,5 +71,44 @@ describe("Slot machine", () => {
     initialWheelsDisplay.forEach((iw, index) => {
       expect(iw === latestWheelsDisplay[index]).toBeTruthy();
     });
+  });
+
+  it("gives a prize of 10 dollars when the result is two identical non-consecutive symbols", async () => {
+    const { getByText, getByTestId } = render(
+      <SlotMachine initialFaces={[1, 2, 1]} />
+    );
+
+    const rewardText = await waitForElement(() =>
+      getByText(/Two identical non-consecutive symbols!/i)
+    );
+
+    expect(getByTestId("prize")).toHaveTextContent("You earned $10,00");
+    expect(rewardText).toBeDefined();
+  });
+
+  it("gives a prize of 20 dollars when the result is two consecutive symbols", async () => {
+    const { getByText, getByTestId } = render(
+      <SlotMachine initialFaces={[1, 1, 2]} />
+    );
+
+    const rewardText = await waitForElement(() =>
+      getByText(/Two consecutive symbols!/i)
+    );
+
+    expect(getByTestId("prize")).toHaveTextContent("You earned $20,00");
+    expect(rewardText).toBeDefined();
+  });
+
+  it("gives a prize of 100 dollars when the result is same symbol in all the wheels", async () => {
+    const { getByText, getByTestId } = render(
+      <SlotMachine initialFaces={[1, 1, 1]} />
+    );
+
+    const rewardText = await waitForElement(() =>
+      getByText(/The same symbol in all the wheels!/i)
+    );
+
+    expect(getByTestId("prize")).toHaveTextContent("You earned $100,00");
+    expect(rewardText).toBeDefined();
   });
 });

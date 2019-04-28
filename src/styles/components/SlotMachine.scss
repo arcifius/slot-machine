@@ -2,25 +2,47 @@
   display: flex;
   flex-flow: column nowrap;
   height: 40vh;
+  width: 320px;
 
   .SlotMachine-head,
   .SlotMachine-body,
+  .SlotMachine-lever,
   .SlotMachine-feet {
     flex: 1;
+    padding: 0 5px 0 5px;
+  }
+
+  .SlotMachine-head {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    max-height: 55px;
+    background-color: #b71c1c;
+    border-bottom: 2px solid #f44336;
+    padding: 5px;
+    p {
+      margin: 0px;
+      text-transform: uppercase;
+      font-size: 0.5em;
+      text-align: center;
+    }
   }
 
   .SlotMachine-body {
+    background-color: #b71c1c;
     display: flex;
     flex-flow: row nowrap;
-    padding: 0 5px 0 5px;
-    background-color: #b71c1c;
+    justify-content: center;
   }
 
   .SlotMachine-lever {
+    background-color: #b71c1c;
     padding: 5px;
+    display: flex;
 
     button {
-      float: right;
       border-radius: 50%;
       border: none;
       background-color: white;
@@ -35,5 +57,9 @@
         outline: none;
       }
     }
+  }
+
+  .SlotMachine-feet {
+    background-color: #313131;
   }
 }
