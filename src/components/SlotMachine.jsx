@@ -92,6 +92,9 @@ function SlotMachine(props) {
   }, [isSpinning]);
 
   function handleButtonPress() {
+    if (!isSpinning) {
+      shuffle();
+    }
     setSpinning(!isSpinning);
   }
 
