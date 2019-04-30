@@ -21,7 +21,7 @@ http://slotmachine.numen.com.br
 To interact with the slot machine you can clone this repository, move the the folder and run
 `npm install`, wait until it completes and then run `npm start`. You should be able to see the slot machine at http://localhost:3000.
 
-![Slot machine working](https://i.ibb.co/4t81T34/image.png)
+![Slot machine working](preview/slotmachine.gif)
 
 ## Available Scripts
 
