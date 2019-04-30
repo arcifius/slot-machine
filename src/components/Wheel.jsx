@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import LazyLoad from "react-lazyload";
 
 // Assets
 import strawberry from "assets/strawberry.svg";
@@ -30,7 +31,9 @@ function Wheel(props) {
 
   return (
     <div className="Wheel">
-      <img src={current.src} className="Wheel-slot-icon" alt={current.alt} />
+      <LazyLoad height={50} once>
+        <img src={current.src} className="Wheel-slot-icon" alt={current.alt} />
+      </LazyLoad>
     </div>
   );
 }
