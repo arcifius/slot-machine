@@ -6,9 +6,9 @@ describe("Slot machine wheel", () => {
   afterEach(cleanup);
 
   it("renders strawberry when current is 0 or greather than 3", () => {
-    const { getByAltText, rerender } = render(<Wheel current={0} />);
+    const { getByTestId, rerender } = render(<Wheel current={0} />);
 
-    const strawberry = getByAltText("strawberry");
+    const strawberry = getByTestId("strawberry");
 
     expect(strawberry).toBeDefined();
 
@@ -18,25 +18,25 @@ describe("Slot machine wheel", () => {
   });
 
   it("renders banana when current is 1", () => {
-    const { getByAltText } = render(<Wheel current={1} />);
+    const { getByTestId } = render(<Wheel current={1} />);
 
-    const banana = getByAltText("banana");
+    const banana = getByTestId("banana");
 
     expect(banana).toBeDefined();
   });
 
   it("renders orange when current is 2", () => {
-    const { getByAltText } = render(<Wheel current={2} />);
+    const { getByTestId } = render(<Wheel current={2} />);
 
-    const orange = getByAltText("orange");
+    const orange = getByTestId("orange");
 
     expect(orange).toBeDefined();
   });
 
   it("renders monkey when current is 3", () => {
-    const { getByAltText } = render(<Wheel current={3} />);
+    const { getByTestId } = render(<Wheel current={3} />);
 
-    const monkey = getByAltText("monkey");
+    const monkey = getByTestId("monkey");
 
     expect(monkey).toBeDefined();
   });

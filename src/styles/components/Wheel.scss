@@ -3,12 +3,42 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin: 2px;
+  margin: 25px 5px 5px 5px;
+  padding: 5px;
+  width: 60px;
+  height: 60px;
+  display: block;
+  background-color: white;
 
-  img {
-    padding: 15px;
-    width: 50px;
-    pointer-events: none;
-    background-color: white;
+  &.banana {
+    background-image: url("../../assets/banana.svg");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position-x: 10px;
+    background-position-y: 10px;
+  }
+
+  &.monkey {
+    background-image: url("../../assets/monkey.svg");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position-x: 10px;
+    background-position-y: 5px;
+  }
+
+  &.orange {
+    background-image: url("../../assets/orange.svg");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position-x: 10px;
+    background-position-y: 10px;
+  }
+
+  &.strawberry {
+    background-image: url("../../assets/strawberry.svg");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position-x: 10px;
+    background-position-y: 10px;
   }
 }
