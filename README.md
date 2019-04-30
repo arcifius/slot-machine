@@ -1,8 +1,8 @@
 # Slot machine
 
 A minimalist slot machine.
-The slot machine spins every 50ms, there are a lot of approaches to make it happen but considering the shortest path to cover the requirements, I've decided to make an Array, loop it changing an integer value (between 0 and 3) the wheels are independent and they show an image based on the provided integer.
-To avoid image loading issues I've tried to build something to check image status but it didn't work smoothly I also tried some libraries like `react-lazyload` but it also didn't work as expected. To solve this, quickly, I've decided to work with css classes and just switch them based on current face (integer between 0 and 3)... It isn't the best solution since its consuming a good slice of CPU and I do intend to provide updates to this project in order to find one of the best ways available through React Hooks.
+The wheels of slot machine spins every 50ms, there are a lot of approaches to make it happen but considering the shortest path to cover the requirements, I've decided to make an Array, loop it changing an integer value (between 0 and 3) the wheels are independent and they show an image based on the provided integer.  
+To avoid image loading issues I've tried to build something to check image status but it didn't work smoothly I also tried some libraries like `react-lazyload` but it also didn't work as expected. To solve this, quickly, I've decided to work with css classes and just switch them based on current face (integer between 0 and 3)... It isn't the best solution since its consuming a good slice of CPU and I do intend to provide updates to this project in order to find one of the best ways available through React Hooks.  
 Since it uses React hooks and not everything is integrated with them, this is an experimental project.
 More tests will be added as libraries evolve to a more stable scenario.
 
